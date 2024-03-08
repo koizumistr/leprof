@@ -1,2 +1,2 @@
 # leprof
-Liberty EIffel profile viewer
+Liberty Eiffel profile viewer
