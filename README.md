@@ -21,6 +21,6 @@ profile.seからコールグラフをdot形式で作成するAWKのスクリプ�
 
 ```
 awk -f callgraph.awk profile.se > myprog.dot
-dot -Tsvg mag.dot > myprog.svg
+dot -Tsvg myprog.dot > myprog.svg
 open myprog.svg
 ```
