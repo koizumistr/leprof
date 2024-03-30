@@ -1,0 +1,30 @@
+BEG_G {
+    printf("digraph ext {\n");
+}
+
+E {
+    int i;
+    edge_t e;
+
+    if (head.name == ARGV[0] && tail.name == ARGV[0])
+	printf("\t\"%s\" -> \"%s\"\n", tail.name, head.name);
+    else if (head.name == ARGV[0]) {
+	printf("\t\"%s\" -> \"%s\"\n", tail.name, head.name);
+	e = fstin(tail);
+	for (i = 0; i < tail.indegree; i++) {
+	    printf("\t\"%s\" -> \"%s\"\n", e.tail.name, e.head.name);
+	    e = nxtin(e);
+	}
+    } else if (tail.name == ARGV[0]) {
+	printf("\t\"%s\" -> \"%s\"\n", tail.name, head.name);
+	e = fstout(head);
+	for (i = 0; i < head.outdegree; i++) {
+	    printf("\t\"%s\" -> \"%s\"\n", e.tail.name, e.head.name);
+	    e = nxtout(e);
+	}
+    }
+}
+
+END_G {
+    printf("}\n");
+}

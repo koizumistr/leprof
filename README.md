@@ -24,3 +24,13 @@ awk -f callgraph.awk profile.se > myprog.dot
 dot -Tsvg myprog.dot > myprog.svg
 open myprog.svg
 ```
+
+デフォルトでは次のext.gvprと連携して動作させるために出力に小細工しています。
+「そんなのは要らん」という方はBEGINの中を修正してください。（何をやれば良いかはソースを見れば分かるかと。）
+
+### ext.gvpr
+それなりの大きさのプログラムであれば、profile.seからcallgraph.awkを救って作成した図は巨大になると思います。それを見て「俺の作ったプログラムすげー」とか「こんな巨大な図を表示できる俺のPCすげー」とか一人悦に入るのも悪くないですが、気になる部分だけを取り出して見たくなることもあるでしょう。その時のためのgvpr用スクリプトです。こんな感じで使ってください。
+
+```
+gvpr -f ext.gvpr -a 注目するノード myprog.dot > myprog2.dot
+```
