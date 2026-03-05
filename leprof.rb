@@ -2,13 +2,14 @@ require 'optparse'
 
 max = 20
 OptionParser.new do |opt|
-  opt.banner = 'Usage: rbps.rb [option] PATTERN'
-  opt.on('-n VAL', 'display long description') { |v| max = v.to_i - 1 }
+  opt.banner = 'Usage: leprof.rb [option] <profile.se>'
+  opt.on('-n VAL', 'display VAL rows') { |v| max = v.to_i - 1 }
   opt.version = [1, 0]
 
   begin
     opt.parse!(ARGV)
-  rescue
+  rescue OptionParser::ParseError => e
+    puts "Error: #{e.message}"
     puts opt.help
     exit(-2)
   end
