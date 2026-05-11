@@ -34,18 +34,18 @@ File.open(ARGV[0]) do |f|
     table.append(row)
   end
   table.each_with_index do |item, i|
-    print item[:cumul], ' ', item[:name], "\n"
+    puts "#{item[:cumul]} #{item[:name]}"
     break if i == max
   end
 
   print "\n========== count ==========\n"
   table.sort_by { |x| x[:count] }.reverse.each_with_index do |item, i|
-    print item[:count], ' ', item[:name], "\n"
+    puts "#{item[:count]} #{item[:name]}"
     break if i == max
   end
   print "\n========== own ==========\n"
   table.sort_by { |x| x[:own] }.reverse.each_with_index do |item, i|
-    print item[:own], ' ', item[:name], "\n"
+    puts "#{item[:own]} #{item[:name]}"
     break if i == max
   end
 end
