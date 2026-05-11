@@ -39,8 +39,10 @@ File.open(ARGV[0]) do |f|
   end
 
   print "\n========== count ==========\n"
-  table.sort_by { |x| x[:count] }.reverse.each_with_index do |item, i|
-    puts "#{item[:count]} #{item[:name]}"
+  crsored = table.sort_by { |x| x[:count] }.reverse
+  width = crsored[0][:count].to_s.length
+  crsored.each_with_index do |item, i|
+    puts "#{item[:count].to_s.rjust(width)} #{item[:name]}"
     break if i == max
   end
   print "\n========== own ==========\n"
