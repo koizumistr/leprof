@@ -1,6 +1,6 @@
 # le profile tools
 ## in English
-Liberty Eiffel profile tools
+support tools for Liberty Eiffel profile
 
 ## 日本語で
 Liberty Eiffelでは-profileと指定してコンパイルするとprofile.seというファイルにプロファイルが取れます。そのファイルをいい感じで見るためのツールです。
