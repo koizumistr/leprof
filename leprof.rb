@@ -30,7 +30,7 @@ File.open(ARGV[0]) do |f|
     data = line.match(/(\d+) *(\d+\.?\d*)[ s]*(\d+.?\d*)[ s]*([\w.\[\],_ "<>]+)/)
     break if data.nil?
 
-    row = { name: data[4], count: data[1].to_i, own: data[2], cumul: data[3] }
+    row = { name: data[4], count: data[1].to_i, own: data[2].to_f, cumul: data[3].to_f }
     table.append(row)
   end
   table.each_with_index do |item, i|
