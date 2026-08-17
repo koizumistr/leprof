@@ -27,7 +27,7 @@ File.open(ARGV[0]) do |f|
   table = []
   loop do
     line = f.gets
-    data = line.match(/(\d+) *(\d+\.?\d*)[ s]*(\d+.?\d*)[ s]*([\w.\[\],_ "<>]+)/)
+    data = line.match(/(\d+) *(\d+\.?\d*) s[ ]+(\d+.?\d*) s[ ]+(.+)$/)
     break if data.nil?
 
     row = { name: data[4], count: data[1].to_i, own: data[2].to_f, cumul: data[3].to_f }
