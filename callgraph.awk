@@ -7,7 +7,6 @@ BEGIN {
 /^[^ ].*call[s]{0,1}$/ {
     sub(/:$/, "", $1);
     if (sqsub != "") {
-	print "hoge"
 	gsub(/\[|\]/, sqsub, $1)
     }
     callee = $1;
